@@ -1,5 +1,6 @@
 .navbar{
     background: #FBD062 !important;
+    height: 79px;
 }
 .navbar .logo{
     width: 170px;
@@ -14,11 +15,23 @@
 .navbar ul li:hover{
     border-bottom: 2px solid green;
 }
-.navbar ul button{
+.navbar ul button,
+.header button{
     background: black;
     color: white;
     padding:7px 32px;
     border: none;
     outline: none;
     border-radius:5px;
+}
+.header{
+    position: relative;
+    height: 80vh;
+    background: #FBD062;
+    padding: 30px 16px;
+}
+.header::before{
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
