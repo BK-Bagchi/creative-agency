@@ -1,0 +1,9 @@
+.client-company{
+    padding: 50px 30px;
+}
+.client-company img{
+    width: 115px;
+    min-width: 115px;
+    height: 55px;
+    margin: 20px 50px;
+}
