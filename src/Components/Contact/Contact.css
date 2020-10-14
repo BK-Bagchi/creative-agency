@@ -1,0 +1,28 @@
+.contact{
+    background: #FBD062;
+    padding: 70px;
+}
+.contact input,
+.contact textarea{
+    border: none;
+    outline: none;
+    margin: 10px 0px; 
+    padding: 10px;
+    border-radius: 5px;
+}
+.contact input{
+    height: 70px;
+}
+.contact input[type="submit"]{
+    background: black;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius:5px;
+    width: 150px;
+    height: 50px;
+}
+footer{
+    background: #FBD062;
+    padding:10px 0;
+}
