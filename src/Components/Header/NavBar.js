@@ -17,6 +17,7 @@ const NavBar = () => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav ml-auto d-flex align-items-center">
                     <li className="nav-item active">Home</li>
+                    <li className="nav-item active" onClick={() => history.push('dashboard')}>Dashboard</li>
                     <li className="nav-item">Our Portfolio</li>
                     <li className="nav-item dropdown">Our Team</li>
                     <li className="nav-item">Contact Us</li>

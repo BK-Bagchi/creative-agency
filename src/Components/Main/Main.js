@@ -2,6 +2,7 @@ import React, { createContext, useState } from 'react';
 import Sign from '../Sign/Sign';
 import Home from './Home';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import DHome from '../Dashboard/DHome';
 
 if (!JSON.parse(sessionStorage.getItem('loginInfo')))
     sessionStorage.setItem('loginInfo', JSON.stringify({}))
@@ -20,6 +21,9 @@ const Main = () => {
                     </Route>
                     <Route path="/sign">
                         <Sign />
+                    </Route>
+                    <Route path="/dashboard">
+                        <DHome />
                     </Route>
                     <Route path='*'>
                         <Redirect push to='/' />
