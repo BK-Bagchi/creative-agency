@@ -1,6 +1,7 @@
 .navbar{
     background: #FBD062 !important;
     height: 79px;
+    z-index: 11;
 }
 .navbar .logo{
     width: 170px;

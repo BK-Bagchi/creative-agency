@@ -1,8 +1,12 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import Logo from '../../Resources/images/logos/logo.png'
 import './Header.css'
 
 const NavBar = () => {
+    const history = useHistory()
+    const loginInfo = JSON.parse(sessionStorage.getItem('loginInfo'))
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <img className="logo" src={Logo} alt="logo" />
@@ -16,7 +20,12 @@ const NavBar = () => {
                     <li className="nav-item">Our Portfolio</li>
                     <li className="nav-item dropdown">Our Team</li>
                     <li className="nav-item">Contact Us</li>
-                    <button>Login</button>
+                    {
+                        loginInfo.isLoggedIn ?
+                            <li className="nav-item">{loginInfo.displayName}</li>
+                            :
+                            <button onClick={() => history.push('/sign')}>Login</button>
+                    }
                 </ul>
             </div>
         </nav>

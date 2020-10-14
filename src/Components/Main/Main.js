@@ -1,19 +1,32 @@
-import React from 'react';
-import ClientCompany from '../ClientCompany/ClientCompany';
-import Contact from '../Contact/Contact';
-import Feedback from '../Feedback/Feedback';
-import Header from '../Header/Header';
-import Services from '../Services/Services';
+import React, { createContext, useState } from 'react';
+import Sign from '../Sign/Sign';
+import Home from './Home';
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
+if (!JSON.parse(sessionStorage.getItem('loginInfo')))
+    sessionStorage.setItem('loginInfo', JSON.stringify({}))
+export const GlobalData = createContext()
 const Main = () => {
+    const [loginInfo, setLoginInfo] = useState({})
+    if (loginInfo.isLoggedIn)
+        sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo))
+
     return (
-        <>
-            <Header />
-            <ClientCompany />
-            <Services />
-            <Feedback />
-            <Contact />
-        </>
+        <GlobalData.Provider value={{ login: [loginInfo, setLoginInfo] }}>
+            <Router>
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route path="/sign">
+                        <Sign />
+                    </Route>
+                    <Route path='*'>
+                        <Redirect push to='/' />
+                    </Route>
+                </Switch>
+            </Router>
+        </GlobalData.Provider>
     );
 };
 
