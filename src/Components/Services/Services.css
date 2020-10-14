@@ -1,0 +1,15 @@
+.services .span-color{
+    color: green;
+}
+.services .service{
+    transition: 0.5s;
+}
+.services .service:hover{
+    box-shadow: 3px 3px 15px lightgrey;
+    transform: scale(1.05);
+    border-radius: 7px;
+}
+.services .service-img{
+    width:90px;
+    margin: 10px auto;
+}
