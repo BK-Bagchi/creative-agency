@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import Sign from '../Sign/Sign';
 import Home from './Home';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
@@ -12,6 +12,18 @@ const Main = () => {
     if (loginInfo.isLoggedIn)
         sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo))
 
+    const checkAdmin = (adminInfo) => {
+        const checkAdmin = adminInfo.find(info => info.email === loginInfo.email)
+        checkAdmin !== undefined ?
+            sessionStorage.setItem('admin', JSON.stringify({ isAdmin: true })) :
+            sessionStorage.setItem('admin', JSON.stringify({ isAdmin: false }))
+    }
+
+    useEffect(() => {
+        fetch('http://localhost:4000/admin')
+            .then(res => res.json())
+            .then(data => checkAdmin(data))
+    }, [loginInfo])
     return (
         <GlobalData.Provider value={{ login: [loginInfo, setLoginInfo] }}>
             <Router>
