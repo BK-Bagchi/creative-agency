@@ -6,17 +6,22 @@ import DHome from '../Dashboard/DHome';
 
 if (!JSON.parse(sessionStorage.getItem('loginInfo')))
     sessionStorage.setItem('loginInfo', JSON.stringify({}))
+if (!JSON.parse(sessionStorage.getItem('admin')))
+    sessionStorage.setItem('admin', JSON.stringify({}))
+
 export const GlobalData = createContext()
 const Main = () => {
-    const [loginInfo, setLoginInfo] = useState({})
-    if (loginInfo.isLoggedIn)
+    const [loginInfo, setLoginInfo] = useState(JSON.parse(localStorage.getItem('loginInfo')))
+    if (loginInfo)
         sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo))
 
     const checkAdmin = (adminInfo) => {
-        const checkAdmin = adminInfo.find(info => info.email === loginInfo.email)
-        checkAdmin !== undefined ?
-            sessionStorage.setItem('admin', JSON.stringify({ isAdmin: true })) :
-            sessionStorage.setItem('admin', JSON.stringify({ isAdmin: false }))
+        if (loginInfo) {
+            const checkAdmin = adminInfo.find(info => info.email === loginInfo.email)
+            checkAdmin !== undefined ?
+                sessionStorage.setItem('admin', JSON.stringify({ isAdmin: true })) :
+                sessionStorage.setItem('admin', JSON.stringify({ isAdmin: false }))
+        }
     }
 
     useEffect(() => {
