@@ -22,6 +22,13 @@ input[type="submit"]{
     width: 150px;
     height: 50px;
 }
+select{
+    border: none;
+    outline: none;
+    padding: 4px;
+    border-radius: 5px;
+    color: red;
+}
 .user-service-list button{
     background: #FFE3E3;
     color: red;
@@ -48,4 +55,11 @@ input[type="submit"]{
 .make-admin input[type="submit"]{
     color: white;
     background: green;
+}
+.admin-service-list thead{
+    background: white;
+}
+.admin-service-list th,
+.admin-service-list td{
+    padding: 10px 0px;
 }
