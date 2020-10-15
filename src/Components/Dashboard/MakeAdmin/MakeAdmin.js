@@ -8,7 +8,6 @@ const MakeAdmin = () => {
             email: e.target.value
         })
     }
-    console.log(formInfo);
 
     const submitForm = (e) => {
         e.preventDefault()
