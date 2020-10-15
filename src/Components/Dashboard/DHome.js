@@ -20,7 +20,7 @@ const DHome = () => {
         <section className="dashboard d-flex p-2">
             <div className="col-2">
                 <div className="top-nav">
-                    <img style={{ width: '170px' }} src={Logo} alt="Logo" />
+                    <img onClick={() => history.push('/')} style={{ width: '170px' }} src={Logo} alt="Logo" />
                 </div>
                 <div className="list py-4">
                     <ul type="none">
@@ -33,7 +33,7 @@ const DHome = () => {
                     </ul>
                 </div>
             </div>
-            <div className="col-10 px-5">
+            <div className="col-10 px-5 pt-2 change">
                 <div className="d-flex align-items-center justify-content-between mb-5">
                     <p>Name</p>
                     <div className="d-flex align-items-center">

@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import '../DHome.css'
 
 const Order = () => {
     return (
@@ -7,7 +8,7 @@ const Order = () => {
                 <input type="text" placeholder="Your name/company's name" />
                 <input type="email" placeholder="Your email address" />
                 <input type="text" placeholder="Your Order" />
-                <textarea rows="10" placeholder="Project Description"></textarea>
+                <textarea rows="8" placeholder="Project Description"></textarea>
                 <div>
                     <input type="text" placeholder="Price" />
                     <input type="file" />
