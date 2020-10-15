@@ -10,10 +10,13 @@ import UserServiceList from './UserServiceList/UserServiceList'
 
 const DHome = () => {
     const loginInfo = JSON.parse(sessionStorage.getItem('loginInfo'))
+    const adminInfo = JSON.parse(sessionStorage.getItem('admin'))
+    console.log(adminInfo);
     const { path, url } = useRouteMatch()
     const history = useHistory()
+
     useEffect(() => {
-        history.push('/dashboard/order')
+        adminInfo.isAdmin ? history.push('/dashboard/serviceListA') : history.push('/dashboard/order')
     }, [])
 
     return (
@@ -24,12 +27,19 @@ const DHome = () => {
                 </div>
                 <div className="list py-4">
                     <ul type="none">
-                        <Link to={`${url}/order`}><li>Order</li></Link>
-                        <Link to={`${url}/serviceListU`}><li>Service List</li></Link>
-                        <Link to={`${url}/review`}><li>Review</li></Link>
-                        <Link to={`${url}/serviceListA`}><li>Service List</li></Link>
-                        <Link to={`${url}/addService`}><li>Add Service</li></Link>
-                        <Link to={`${url}/makeAdmin`}><li>Make Admin</li></Link>
+                        {
+                            adminInfo.isAdmin ?
+                                <>
+                                    <Link to={`${url}/serviceListA`}><li>Service List</li></Link>
+                                    <Link to={`${url}/addService`}><li>Add Service</li></Link>
+                                    <Link to={`${url}/makeAdmin`}><li>Make Admin</li></Link>
+                                </> :
+                                <>
+                                    <Link to={`${url}/order`}><li>Order</li></Link>
+                                    <Link to={`${url}/serviceListU`}><li>Service List</li></Link>
+                                    <Link to={`${url}/review`}><li>Review</li></Link>
+                                </>
+                        }
                     </ul>
                 </div>
             </div>
