@@ -20,6 +20,12 @@ const MakeAdmin = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formInfo)
         })
+            .then(res => res.json())
+            .then(data => alert(`${data.insertedCount} admin inserted`))
+            .catch(err => {
+                alert('Oops!! Something went wrong during inserting data')
+                console.log(err)
+            })
     }
 
     return (
