@@ -63,3 +63,6 @@ select{
 .admin-service-list td{
     padding: 10px 0px;
 }
+.admin-service-list tr:nth-child(even) {
+    background-color: white;
+  }

@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../DHome.css'
 
 const AdminServiceList = () => {
+    const [orderedList, setOrderedList] = useState()
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+        fetch('http://localhost:4000/showOrderedService')
+            .then(res => res.json())
+            .then(data => {
+                setOrderedList(data)
+                setLoading(false)
+            })
+    }, [])
+    console.log(orderedList);
+
     return (
         <section className="admin-service-list">
-            AdminServiceList
             <table className="w-100 text-center">
                 <thead>
                     <tr>
@@ -16,32 +27,36 @@ const AdminServiceList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Name</td>
-                        <td>Email ID</td>
-                        <td>Service</td>
-                        <td>Project Details</td>
-                        <td>
-                            <select name="" value="" onChange={""}>
-                                <option value="pending">Pending</option>
-                                <option value="done">Done</option>
-                                <option value="ongoing">On Going</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td>Email ID</td>
-                        <td>Service</td>
-                        <td>Project Details</td>
-                        <td>
-                            <select name="" value="" onChange={""}>
-                                <option value="pending">Pending</option>
-                                <option value="done">Done</option>
-                                <option value="ongoing">On Going</option>
-                            </select>
-                        </td>
-                    </tr>
+                    {
+                        loading ?
+                            <div className="d-flex justify-content-center">
+                                <div className="spinner-border" role="status">
+                                    <span className="sr-only">Loading...</span>
+                                </div>
+                            </div> :
+                            <>
+                                {
+                                    orderedList.map((list) => {
+                                        const { _id, name, email, order, status, description } = list
+                                        return (
+                                            <tr key={_id}>
+                                                <td>{name}</td>
+                                                <td>{email}</td>
+                                                <td>{order}</td>
+                                                <td>{description}</td>
+                                                <td>
+                                                    <select name="" value={status}>
+                                                        <option value="pending">Pending</option>
+                                                        <option value="done">Done</option>
+                                                        <option value="ongoing">On Going</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </>
+                    }
                 </tbody>
             </table>
         </section>
