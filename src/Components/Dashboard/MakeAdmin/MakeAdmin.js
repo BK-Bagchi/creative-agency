@@ -15,7 +15,7 @@ const MakeAdmin = () => {
             setErrorMessage('Please insert an email address')
             return
         }
-        fetch('http://localhost:4000/makeAdmin', {
+        fetch('https://safe-brushlands-61338.herokuapp.com/makeAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formInfo)

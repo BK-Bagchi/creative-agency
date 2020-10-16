@@ -21,7 +21,7 @@ const AddService = () => {
             setErrorMessage('Please Fill all the fields')
             return
         }
-        fetch('http://localhost:4000/addServices', {
+        fetch('https://safe-brushlands-61338.herokuapp.com/addServices', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formInfo)

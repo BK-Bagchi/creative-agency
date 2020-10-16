@@ -4,15 +4,34 @@ import '../DHome.css'
 const AdminServiceList = () => {
     const [orderedList, setOrderedList] = useState()
     const [loading, setLoading] = useState(true)
+    const [updated, setUpdated] = useState(false)
+
     useEffect(() => {
-        fetch('http://localhost:4000/showOrderedService')
+        fetch('https://safe-brushlands-61338.herokuapp.com/showOrderedService')
             .then(res => res.json())
             .then(data => {
                 setOrderedList(data)
                 setLoading(false)
             })
-    }, [])
-    console.log(orderedList);
+    }, [updated])
+
+    const changeStatus = (e, id) => {
+        const value = e.target.value
+        fetch('https://safe-brushlands-61338.herokuapp.com/changeStatus', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ _id: id, status: value })
+        })
+            .then(res => res.json())
+            .then(data => {
+                setUpdated(true)
+                alert(`${data.modifiedCount} data updated`)
+            })
+            .catch(err => {
+                alert('Oops!! Something went wrong during inserting data')
+                console.log(err)
+            })
+    }
 
     return (
         <section className="admin-service-list">
@@ -45,7 +64,7 @@ const AdminServiceList = () => {
                                                 <td>{order}</td>
                                                 <td>{description}</td>
                                                 <td>
-                                                    <select name="" value={status}>
+                                                    <select name="" value={status} onChange={(e) => changeStatus(e, _id)} >
                                                         <option value="pending">Pending</option>
                                                         <option value="done">Done</option>
                                                         <option value="ongoing">On Going</option>

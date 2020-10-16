@@ -30,7 +30,7 @@ const Order = () => {
             setErrorMessage('Please fill all of the fields')
             return
         }
-        fetch('http://localhost:4000/orderService', {
+        fetch('https://safe-brushlands-61338.herokuapp.com/orderService', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formInfo)

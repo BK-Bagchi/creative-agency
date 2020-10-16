@@ -6,7 +6,7 @@ const UserServiceList = () => {
     const [orderedList, setOrderedList] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch('http://localhost:4000/showOrderedService', {
+        fetch('https://safe-brushlands-61338.herokuapp.com/showOrderedService', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: loginInfo.email })

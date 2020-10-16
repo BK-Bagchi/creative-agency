@@ -26,7 +26,7 @@ const Main = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:4000/admin')
+        fetch('https://safe-brushlands-61338.herokuapp.com/admin')
             .then(res => res.json())
             .then(data => checkAdmin(data))
     }, [loginInfo])

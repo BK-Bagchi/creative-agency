@@ -24,7 +24,7 @@ const Review = () => {
             setErrorMessage('Please insert a description')
             return
         }
-        fetch('http://localhost:4000/userReview', {
+        fetch('https://safe-brushlands-61338.herokuapp.com/userReview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formInfo)

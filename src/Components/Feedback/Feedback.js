@@ -24,7 +24,7 @@ const Feedback = () => {
     const [feedback, setFeedback] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch('http://localhost:4000/feedback')
+        fetch('https://safe-brushlands-61338.herokuapp.com/feedback')
             .then(res => res.json())
             .then(data => {
                 setFeedback(data)
