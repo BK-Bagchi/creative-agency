@@ -3,6 +3,7 @@ import Sign from '../Sign/Sign';
 import Home from './Home';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import DHome from '../Dashboard/DHome';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 if (!JSON.parse(sessionStorage.getItem('loginInfo')))
     sessionStorage.setItem('loginInfo', JSON.stringify({}))
@@ -39,9 +40,9 @@ const Main = () => {
                     <Route path="/sign">
                         <Sign />
                     </Route>
-                    <Route path="/dashboard">
+                    <PrivateRoute path="/dashboard">
                         <DHome />
-                    </Route>
+                    </PrivateRoute>
                     <Route path='*'>
                         <Redirect push to='/' />
                     </Route>
