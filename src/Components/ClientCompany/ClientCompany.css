@@ -1,5 +1,6 @@
 .client-company{
     padding: 50px 30px;
+    z-index: 111 !important;
 }
 .client-company img{
     width: 115px;
