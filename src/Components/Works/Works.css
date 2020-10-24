@@ -6,3 +6,6 @@
     height: 450px !important;
     /* width: 100px !important; */
 }
+.works .slide-image{
+    max-height: 300px;
+}
