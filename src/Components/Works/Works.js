@@ -14,7 +14,7 @@ const Works = () => {
     return (
         <section className="works">
             <h2 className="mb-5 text-center" style={{ color: 'white' }}>Here are some of <span className="span-color">our works</span></h2>
-            <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" className="carousel slide container" data-ride="carousel">
                 <Swiper
                     spaceBetween={20}
                     slidesPerView={3.3}
