@@ -8,6 +8,9 @@ import Order from './Order/Order'
 import Review from './Review/Review'
 import UserServiceList from './UserServiceList/UserServiceList'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faCommentAlt, faPlus, faShoppingBasket, faShoppingCart, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+
 const DHome = () => {
     const loginInfo = JSON.parse(sessionStorage.getItem('loginInfo'))
     const adminInfo = JSON.parse(sessionStorage.getItem('admin'))
@@ -30,14 +33,14 @@ const DHome = () => {
                         {
                             adminInfo.isAdmin ?
                                 <>
-                                    <Link to={`${url}/serviceListA`}><li>Service List</li></Link>
-                                    <Link to={`${url}/addService`}><li>Add Service</li></Link>
-                                    <Link to={`${url}/makeAdmin`}><li>Make Admin</li></Link>
+                                    <Link to={`${url}/serviceListA`}><li className="dashboard-options"><FontAwesomeIcon icon={faShoppingBasket} /> Service List</li></Link>
+                                    <Link to={`${url}/addService`}><li className="dashboard-options"><FontAwesomeIcon icon={faPlus} /> Add Service</li></Link>
+                                    <Link to={`${url}/makeAdmin`}><li className="dashboard-options"><FontAwesomeIcon icon={faUserPlus} /> Make Admin</li></Link>
                                 </> :
                                 <>
-                                    <Link to={`${url}/order`}><li>Order</li></Link>
-                                    <Link to={`${url}/serviceListU`}><li>Service List</li></Link>
-                                    <Link to={`${url}/review`}><li>Review</li></Link>
+                                    <Link to={`${url}/order`}><li className="dashboard-options"><FontAwesomeIcon icon={faShoppingCart} /> Order</li></Link>
+                                    <Link to={`${url}/serviceListU`}><li className="dashboard-options"><FontAwesomeIcon icon={faShoppingBasket} /> Service List</li></Link>
+                                    <Link to={`${url}/review`}><li className="dashboard-options"><FontAwesomeIcon icon={faCommentAlt} /> Review</li></Link>
                                 </>
                         }
                     </ul>

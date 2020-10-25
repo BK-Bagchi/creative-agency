@@ -1,3 +1,13 @@
+.dashboard .dashboard-options{
+    margin:10px 0;
+    color: black;
+}
+.dashboard .dashboard-options:hover{
+    color: green;
+}
+.dashboard a:hover{
+    text-decoration:none;
+}
 .change{
     background: #F4F7FC;
     height:100vh;
