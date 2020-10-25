@@ -6,11 +6,8 @@
 .navbar .logo{
     width: 170px;
 }
-.navbar ul li,
-.navbar ul button{
+.navbar ul li{
     margin: 0 20px;
-    color: white;
-    transition: 0.5s;
     color: black;
 }
 .navbar ul li:hover{
