@@ -9,7 +9,7 @@ import Review from './Review/Review'
 import UserServiceList from './UserServiceList/UserServiceList'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faCommentAlt, faPlus, faShoppingBasket, faShoppingCart, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCommentAlt, faPlus, faShoppingBasket, faShoppingCart, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 
 const DHome = () => {
     const loginInfo = JSON.parse(sessionStorage.getItem('loginInfo'))

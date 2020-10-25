@@ -57,6 +57,7 @@ const AdminServiceList = () => {
                                 {
                                     orderedList.map((list) => {
                                         const { _id, name, email, order, status, description } = list
+
                                         return (
                                             <tr key={_id}>
                                                 <td>{name}</td>
@@ -64,7 +65,7 @@ const AdminServiceList = () => {
                                                 <td>{order}</td>
                                                 <td>{description}</td>
                                                 <td>
-                                                    <select name="" value={status} onChange={(e) => changeStatus(e, _id)} >
+                                                    <select className={`${status}`} value={status} onChange={(e) => changeStatus(e, _id)} >
                                                         <option value="pending">Pending</option>
                                                         <option value="done">Done</option>
                                                         <option value="ongoing">On Going</option>

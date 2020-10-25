@@ -36,7 +36,7 @@ const UserServiceList = () => {
                                             <div className="px-3 service-item">
                                                 <div className="d-flex justify-content-between">
                                                     <img style={{ width: '70px' }} src={Img} alt="Img" />
-                                                    <button>{status}</button>
+                                                    <button className={`${status}`}>{status}</button>
                                                 </div>
                                                 <h3>{order}</h3>
                                                 <p>{description}</p>
